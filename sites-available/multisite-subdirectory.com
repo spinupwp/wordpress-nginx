@@ -15,8 +15,8 @@ server {
 	access_log /sites/multisite-subdirectory.com/logs/access.log;
 	error_log /sites/multisite-subdirectory.com/logs/error.log;
 
-	# Log exclusions
-	include per-site/logs.conf;
+	# Exclusions
+	include per-site/exclusions.conf;
 
     # Cache static content
     include per-site/cache.conf;
