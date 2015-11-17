@@ -23,6 +23,9 @@ server {
 	# Log exclusions
 	include per-site/logs.conf;
 
+	# Cache static content
+    include per-site/cache.conf;
+
     # Fastcgi cache rules
     include per-site/fastcgi-cache.conf;
 

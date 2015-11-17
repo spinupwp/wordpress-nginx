@@ -18,6 +18,9 @@ server {
 	# Log exclusions
 	include per-site/logs.conf;
 
+	# Cache static content
+    include per-site/cache.conf;
+
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}
