@@ -5,5 +5,5 @@
 !.gitignore
 !default
 !fastcgi-cache.com
-!simple.com
+!singlesite.com
 !ssl.com

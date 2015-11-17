@@ -3,17 +3,17 @@ server {
     listen: 80;
 
     # Server name to listen for
-	server_name simple.com;
+	server_name singlesite.com;
 
     # Path to document root
-    root /sites/simple.com/public;
+    root /sites/singlesite.com/public;
 
     # File to be used as index
     index index.php;
 
     # Overrides logs defined in global/logs.conf, allows per site logs.
-	access_log /sites/simple.com/logs/access.log;
-	error_log /sites/simple.com/logs/error.log;
+	access_log /sites/singlesite.com/logs/access.log;
+	error_log /sites/singlesite.com/logs/error.log;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
@@ -31,7 +31,7 @@ server {
 # Redirect www to non-www
 server {
     listen 80;
-    server_name: www.simple.com;
+    server_name: www.singlesite.com;
 
-    return 301 $scheme://simple.com$request_uri;
+    return 301 $scheme://singlesite.com$request_uri;
 }
