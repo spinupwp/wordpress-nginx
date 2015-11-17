@@ -5,7 +5,7 @@ fastcgi_cache_path /sites/fastcgi-cache.com/cache levels=1:2 keys_zone=fastcgi-c
 
 server {
     # Ports to listen on
-    listen: 80;
+    listen 80;
 
     # Server name to listen for
 	server_name fastcgi-cache.com;

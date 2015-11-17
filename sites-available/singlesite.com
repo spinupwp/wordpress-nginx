@@ -1,6 +1,6 @@
 server {
     # Ports to listen on
-    listen: 80;
+    listen 80;
 
     # Server name to listen for
 	server_name singlesite.com;
