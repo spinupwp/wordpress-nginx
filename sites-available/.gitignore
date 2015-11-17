@@ -1,0 +1,9 @@
+# Ignore everything in sites-available directory
+/*
+
+# Except
+!.gitignore
+!default
+!fastcgi-cache.com
+!simple.com
+!ssl.com
