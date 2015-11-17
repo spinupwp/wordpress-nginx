@@ -20,6 +20,9 @@ server {
 	access_log /sites/fastcgi-cache.com/logs/access.log;
 	error_log /sites/fastcgi-cache.com/logs/error.log;
 
+	# Log exclusions
+	include per-site/logs.conf;
+
     # Fastcgi cache rules
     include per-site/fastcgi-cache.conf;
 

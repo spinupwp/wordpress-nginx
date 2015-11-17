@@ -15,6 +15,9 @@ server {
 	access_log /sites/multisite-subdirectory.com/logs/access.log;
 	error_log /sites/multisite-subdirectory.com/logs/error.log;
 
+	# Log exclusions
+	include per-site/logs.conf;
+
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}

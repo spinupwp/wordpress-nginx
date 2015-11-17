@@ -20,6 +20,9 @@ server {
 	access_log /sites/ssl.com/logs/access.log;
 	error_log /sites/ssl.com/logs/error.log;
 
+	# Log exclusions
+    include per-site/logs.conf;
+
     # SSL rules
     include per-site/ssl.conf;
 
