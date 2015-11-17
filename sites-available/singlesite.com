@@ -37,7 +37,7 @@ server {
 # Redirect www to non-www
 server {
     listen 80;
-    server_name: www.singlesite.com;
+    server_name www.singlesite.com;
 
     return 301 $scheme://singlesite.com$request_uri;
 }

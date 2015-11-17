@@ -55,7 +55,7 @@ server {
 # Redirect www to non-www
 server {
     listen 80;
-    server_name: www.fastcgi-cache.com;
+    server_name www.fastcgi-cache.com;
 
     return 301 $scheme://fastcgi-cache.com$request_uri;
 }

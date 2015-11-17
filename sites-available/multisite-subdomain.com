@@ -37,7 +37,7 @@ server {
 # Redirect www to non-www
 server {
     listen 80;
-    server_name: www.multisite-subdomain.com;
+    server_name www.multisite-subdomain.com;
 
     return 301 $scheme://multisite-subdomain.com$request_uri;
 }

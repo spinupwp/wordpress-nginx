@@ -45,7 +45,7 @@ server {
 # Redirect http to https
 server {
     listen 80;
-    server_name: ssl.com www.ssl.com;
+    server_name ssl.com www.ssl.com;
 
     return 301 https://ssl.com$request_uri;
 }
@@ -53,7 +53,7 @@ server {
 # Redirect www to non-www
 server {
     listen 443;
-    server_name: www.ssl.com;
+    server_name www.ssl.com;
 
     return 301 https://ssl.com$request_uri;
 }
