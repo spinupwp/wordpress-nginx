@@ -4,19 +4,19 @@
 fastcgi_cache_path /sites/fastcgi-cache.com/cache levels=1:2 keys_zone=fastcgi-cache.com:100m inactive=60m;
 
 server {
-    # Ports to listen on
-    listen 80;
+	# Ports to listen on
+	listen 80;
 
-    # Server name to listen for
+	# Server name to listen for
 	server_name fastcgi-cache.com;
 
-    # Path to document root
-    root /sites/fastcgi-cache.com/public;
+	# Path to document root
+	root /sites/fastcgi-cache.com/public;
 
-    # File to be used as index
-    index index.php;
+	# File to be used as index
+	index index.php;
 
-    # Overrides logs defined in global/logs.conf, allows per site logs.
+	# Overrides logs defined in global/logs.conf, allows per site logs.
 	access_log /sites/fastcgi-cache.com/logs/access.log;
 	error_log /sites/fastcgi-cache.com/logs/error.log;
 
@@ -24,38 +24,38 @@ server {
 	include per-site/exclusions.conf;
 
 	# Cache static content
-    include per-site/cache.conf;
+	include per-site/cache.conf;
 
-    # Fastcgi cache rules
-    include per-site/fastcgi-cache.conf;
+	# Fastcgi cache rules
+	include per-site/fastcgi-cache.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}
 
 	location ~ \.php$ {
-        try_files $uri =404;
-        include global/fastcgi-params.conf;
+		try_files $uri =404;
+		include global/fastcgi-params.conf;
 
- 		# Change socket if using PHP pools
- 		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		# Change socket if using PHP pools
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
 
- 		# Skip cache based on rules in per-site/fastcgi-cache.conf.
- 		fastcgi_cache_bypass $skip_cache;
-        fastcgi_no_cache $skip_cache;
+		# Skip cache based on rules in per-site/fastcgi-cache.conf.
+		fastcgi_cache_bypass $skip_cache;
+		fastcgi_no_cache $skip_cache;
 
-        # Define memory zone for caching. Should match key_zone in fastcgi_cache_path above.
-        fastcgi_cache fastcgi-cache.com;
+		# Define memory zone for caching. Should match key_zone in fastcgi_cache_path above.
+		fastcgi_cache fastcgi-cache.com;
 
-        # Define caching time.
-        fastcgi_cache_valid 60m;
+		# Define caching time.
+		fastcgi_cache_valid 60m;
 	}
 }
 
 # Redirect www to non-www
 server {
-    listen 80;
-    server_name www.fastcgi-cache.com;
+	listen 80;
+	server_name www.fastcgi-cache.com;
 
-    return 301 $scheme://fastcgi-cache.com$request_uri;
+	return 301 $scheme://fastcgi-cache.com$request_uri;
 }
