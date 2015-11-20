@@ -16,10 +16,10 @@ server {
 	error_log /sites/multisite-subdomain.com/logs/error.log;
 
 	# Exclusions
-	include per-site/exclusions.conf;
+	include global/server/exclusions.conf;
 
 	# Static content
-	include per-site/static-files.conf;
+	include global/server/static-files.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;

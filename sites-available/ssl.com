@@ -21,13 +21,13 @@ server {
 	error_log /sites/ssl.com/logs/error.log;
 
 	# Exclusions
-	include per-site/exclusions.conf;
+	include global/server/exclusions.conf;
 
 	# Static content
-	include per-site/static-files.conf;
+	include global/server/static-files.conf;
 
 	# SSL rules
-	include per-site/ssl.conf;
+	include global/server/ssl.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;

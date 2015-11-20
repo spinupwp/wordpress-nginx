@@ -21,13 +21,13 @@ server {
 	error_log /sites/fastcgi-cache.com/logs/error.log;
 
 	# Exclusions
-	include per-site/exclusions.conf;
+	include global/server/exclusions.conf;
 
 	# Static content
-	include per-site/static-files.conf;
+	include global/server/static-files.conf;
 
 	# Fastcgi cache rules
-	include per-site/fastcgi-cache.conf;
+	include global/server/fastcgi-cache.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
@@ -40,7 +40,7 @@ server {
 		# Change socket if using PHP pools
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 
-		# Skip cache based on rules in per-site/fastcgi-cache.conf.
+		# Skip cache based on rules in global/server/fastcgi-cache.conf.
 		fastcgi_cache_bypass $skip_cache;
 		fastcgi_no_cache $skip_cache;
 
