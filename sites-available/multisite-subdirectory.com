@@ -18,8 +18,8 @@ server {
 	# Exclusions
 	include per-site/exclusions.conf;
 
-	# Cache static content
-	include per-site/cache.conf;
+	# Static content
+	include per-site/static-files.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
