@@ -21,12 +21,12 @@ server {
 	# Static content
 	include global/server/static-files.conf;
 
+	# Multisite subdirectory install
+	include global/server/multisite-subdirectory.conf;
+
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}
-
-	# Multisite subdirectory install
-	include global/server/multisite-subdirectory.conf;
 
 	location ~ \.php$ {
 		try_files $uri =404;
