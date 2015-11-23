@@ -41,3 +41,42 @@ Test the configuration:
 If the configuration passes, restart Nginx:
 
 `sudo /etc/init.d/nginx reload`
+
+## Directory Structure
+
+This repository has the following structure, which is based on the conventions used by a default Nginx install on Debian:
+
+```
+.
+├── conf.d
+├── global
+    └── server
+├── sites-available
+├── sites-enabled
+```
+
+__conf.d__ - configurations for additional modules.
+
+__global__ - configurations within the `http` block.
+
+__global/server__ - configurations within the `server` block. The `defaults.con` file should be included on the majority of sites, which contains sensible defaults for caching, file exclusions and security. Additional `.conf` files can be included as needed on a per-site basis.
+
+__sites-available__ - configurations for individual sites (virtual hosts).
+
+__sites-enabled__ - symlinks to configurations within the `sites-available` directory. Only sites which have been symlinked are loaded.
+
+### Recommended Site Structure
+
+The following site structure is used throughout this repository:
+
+```
+.
+├── yourdomain1.com
+    └── cache
+    └── logs
+    └── public
+├── yourdomain2.com
+    └── cache
+    └── logs
+    └── public
+```
