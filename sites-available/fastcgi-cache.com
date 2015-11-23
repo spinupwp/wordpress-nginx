@@ -50,6 +50,11 @@ server {
 		# Define caching time.
 		fastcgi_cache_valid 60m;
 	}
+
+	# Uncomment if using the fastcgi_cache_purge module and Nginx Helper plugin (https://wordpress.org/plugins/nginx-helper/)
+	# location ~ /purge(/.*) {
+	#	fastcgi_cache_purge fastcgi-cache.com "$scheme$request_method$host$1";
+	# }
 }
 
 # Redirect www to non-www
