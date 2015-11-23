@@ -11,7 +11,7 @@ server {
 	# File to be used as index
 	index index.php;
 
-	# Overrides logs defined in global/logs.conf, allows per site logs.
+	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/multisite-subdirectory.com/logs/access.log;
 	error_log /sites/multisite-subdirectory.com/logs/error.log;
 

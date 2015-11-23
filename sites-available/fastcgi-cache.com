@@ -1,4 +1,4 @@
-# Define path to cache and memory zone.
+# Define path to cache and memory zone. The memory zone should be unique.
 # keys_zone=fastcgi-cache.com:100m creates the memory zone and sets the maximum size in MBs.
 # inactive=60m will remove cached items that haven't been accessed for 60 minutes or more.
 fastcgi_cache_path /sites/fastcgi-cache.com/cache levels=1:2 keys_zone=fastcgi-cache.com:100m inactive=60m;
@@ -16,7 +16,7 @@ server {
 	# File to be used as index
 	index index.php;
 
-	# Overrides logs defined in global/logs.conf, allows per site logs.
+	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/fastcgi-cache.com/logs/access.log;
 	error_log /sites/fastcgi-cache.com/logs/error.log;
 

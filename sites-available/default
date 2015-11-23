@@ -1,3 +1,5 @@
+# Catch-all server block, resulting in a 444 response for unknown domains.
+
 server {
 	listen 80 default_server;
 	server_name _;
