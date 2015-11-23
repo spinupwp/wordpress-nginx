@@ -20,11 +20,8 @@ server {
 	access_log /sites/fastcgi-cache.com/logs/access.log;
 	error_log /sites/fastcgi-cache.com/logs/error.log;
 
-	# Exclusions
-	include global/server/exclusions.conf;
-
-	# Static content
-	include global/server/static-files.conf;
+	# Default server block rules
+	include global/server/defaults.conf;
 
 	# Fastcgi cache rules
 	include global/server/fastcgi-cache.conf;

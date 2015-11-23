@@ -20,11 +20,8 @@ server {
 	access_log /sites/ssl.com/logs/access.log;
 	error_log /sites/ssl.com/logs/error.log;
 
-	# Exclusions
-	include global/server/exclusions.conf;
-
-	# Static content
-	include global/server/static-files.conf;
+	# Default server block rules
+	include global/server/defaults.conf;
 
 	# SSL rules
 	include global/server/ssl.conf;

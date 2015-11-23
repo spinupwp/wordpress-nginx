@@ -15,11 +15,8 @@ server {
 	access_log /sites/multisite-subdirectory.com/logs/access.log;
 	error_log /sites/multisite-subdirectory.com/logs/error.log;
 
-	# Exclusions
-	include global/server/exclusions.conf;
-
-	# Static content
-	include global/server/static-files.conf;
+	# Default server block rules
+	include global/server/defaults.conf;
 
 	# Multisite subdirectory install
 	include global/server/multisite-subdirectory.conf;

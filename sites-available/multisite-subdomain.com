@@ -15,11 +15,8 @@ server {
 	access_log /sites/multisite-subdomain.com/logs/access.log;
 	error_log /sites/multisite-subdomain.com/logs/error.log;
 
-	# Exclusions
-	include global/server/exclusions.conf;
-
-	# Static content
-	include global/server/static-files.conf;
+	# Default server block rules
+	include global/server/defaults.conf;
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
