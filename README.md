@@ -59,7 +59,7 @@ __conf.d__ - configurations for additional modules.
 
 __global__ - configurations within the `http` block.
 
-__global/server__ - configurations within the `server` block. The `defaults.con` file should be included on the majority of sites, which contains sensible defaults for caching, file exclusions and security. Additional `.conf` files can be included as needed on a per-site basis.
+__global/server__ - configurations within the `server` block. The `defaults.conf` file should be included on the majority of sites, which contains sensible defaults for caching, file exclusions and security. Additional `.conf` files can be included as needed on a per-site basis.
 
 __sites-available__ - configurations for individual sites (virtual hosts).
 
