@@ -5,6 +5,7 @@ This repository contains the Nginx configurations used within the series [Hostin
 * singlesite.com - WordPress single site install (no SSL or page caching)
 * ssl.com - WordPress on HTTPS
 * fastcgi-cache.com - WordPress with [FastCGI caching](https://deliciousbrains.com/hosting-wordpress-yourself-server-monitoring-caching/#page-cache)
+* ssl-fastcgi-cache.com - WordPress on HTTPS with FastCGI caching
 * multisite-subdomain.com - WordPress Multisite install using subdomains
 * multisite-subdirectory.com - WordPress Multisite install using subdirectories
 
