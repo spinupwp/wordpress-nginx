@@ -26,7 +26,7 @@ Symlink the default file from _sites-available_ to _sites-enabled_, which will s
 
 Copy one of the example configurations from _sites-available_ to _sites-available/yourdomain.com_:
 
-sudo cp /etc/nginx/sites-available/singlesite.com /etc/nginx/sites-available/yourdomain.com`
+`sudo cp /etc/nginx/sites-available/singlesite.com /etc/nginx/sites-available/yourdomain.com`
 
 Edit the site accordingly, paying close attention to the server name and paths.
 
