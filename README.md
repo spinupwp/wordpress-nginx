@@ -9,6 +9,8 @@ This repository contains the Nginx configurations used within the series [Hostin
 * multisite-subdomain.com - WordPress Multisite install using subdomains
 * multisite-subdirectory.com - WordPress Multisite install using subdirectories
 
+Looking for a modern hosting environment provisioned using Ansible? Check out [WordPress Ansible](https://github.com/A5hleyRich/wordpress-ansible).
+
 ## Usage
 
 You can use these sample configurations as reference or directly by replacing your existing nginx directory. Follow the steps below to replace your existing nginx configuration.
