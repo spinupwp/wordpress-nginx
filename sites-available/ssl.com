@@ -35,8 +35,8 @@ server {
 		include global/fastcgi-params.conf;
 
 		# Change socket if using PHP pools or PHP 5
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        #fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+		#fastcgi_pass unix:/var/run/php5-fpm.sock;
 	}
 }
 
