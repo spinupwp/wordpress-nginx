@@ -1,6 +1,7 @@
 server {
 	# Ports to listen on
 	listen 80;
+	listen [::]:80;
 
 	# Server name to listen for
 	server_name singlesite.com;
@@ -35,6 +36,7 @@ server {
 # Redirect www to non-www
 server {
 	listen 80;
+	listen [::]:80;
 	server_name www.singlesite.com;
 
 	return 301 $scheme://singlesite.com$request_uri;

@@ -6,6 +6,7 @@ fastcgi_cache_path /sites/fastcgi-cache.com/cache levels=1:2 keys_zone=fastcgi-c
 server {
 	# Ports to listen on
 	listen 80;
+	listen [::]:80;
 
 	# Server name to listen for
 	server_name fastcgi-cache.com;
@@ -58,6 +59,7 @@ server {
 # Redirect www to non-www
 server {
 	listen 80;
+	listen [::]:80;
 	server_name www.fastcgi-cache.com;
 
 	return 301 $scheme://fastcgi-cache.com$request_uri;

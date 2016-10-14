@@ -1,6 +1,7 @@
 server {
 	# Ports to listen on
 	listen 80;
+	listen [::]:80;
 
 	# Server name to listen for
 	server_name multisite-subdomain.com *.multisite-subdomain.com;
@@ -35,6 +36,7 @@ server {
 # Redirect www to non-www
 server {
 	listen 80;
+	listen [::]:80;
 	server_name www.multisite-subdomain.com;
 
 	return 301 $scheme://multisite-subdomain.com$request_uri;
