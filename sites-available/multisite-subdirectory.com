@@ -30,9 +30,10 @@ server {
 		try_files $uri =404;
 		include global/fastcgi-params.conf;
 
-		# Change socket if using PHP pools or PHP 5
-		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-		#fastcgi_pass unix:/var/run/php5-fpm.sock;
+		# Change socket if using PHP pools or different PHP version
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+        #fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        #fastcgi_pass unix:/var/run/php5-fpm.sock;
 	}
 }
 
