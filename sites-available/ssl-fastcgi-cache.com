@@ -15,8 +15,8 @@ server {
 	root /sites/ssl-fastcgi-cache.com/public;
 
 	# Paths to certificate files.
-	ssl_certificate /etc/ssl/ssl-fastcgi-cache.com.crt;
-	ssl_certificate_key /etc/ssl/ssl-fastcgi-cache.com.key;
+	ssl_certificate /etc/letsencrypt/live/ssl-fastcgi-cache.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ssl-fastcgi-cache.com/privkey.pem;
 
 	# File to be used as index
 	index index.php;
