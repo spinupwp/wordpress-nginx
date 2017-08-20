@@ -35,6 +35,9 @@ server {
         #fastcgi_pass unix:/run/php/php7.0-fpm.sock;
         #fastcgi_pass unix:/var/run/php5-fpm.sock;
 	}
+
+    # Rewrite robots.txt
+    rewrite ^/robots.txt$ /index.php last;
 }
 
 # Redirect www to non-www
