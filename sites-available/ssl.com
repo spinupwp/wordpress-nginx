@@ -10,8 +10,8 @@ server {
 	root /sites/ssl.com/public;
 
 	# Paths to certificate files.
-    ssl_certificate /etc/letsencrypt/live/ssl.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ssl.com/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/ssl.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/ssl.com/privkey.pem;
 
 	# File to be used as index
 	index index.php;

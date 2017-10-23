@@ -16,7 +16,7 @@ server {
 
 	# Paths to certificate files.
 	ssl_certificate /etc/letsencrypt/live/ssl-fastcgi-cache.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ssl-fastcgi-cache.com/privkey.pem;
+	ssl_certificate_key /etc/letsencrypt/live/ssl-fastcgi-cache.com/privkey.pem;
 
 	# File to be used as index
 	index index.php;
@@ -42,9 +42,9 @@ server {
 		try_files $uri =404;
 		include global/fastcgi-params.conf;
 
-        # Use the php pool defined in the upstream variable.
-        # See global/php-pool.conf for definition.
-        fastcgi_pass   $upstream;
+		# Use the php pool defined in the upstream variable.
+		# See global/php-pool.conf for definition.
+		fastcgi_pass   $upstream;
 
 		# Skip cache based on rules in global/server/fastcgi-cache.conf.
 		fastcgi_cache_bypass $skip_cache;
@@ -57,8 +57,8 @@ server {
 		fastcgi_cache_valid 60m;
 	}
 
-    # Rewrite robots.txt
-    rewrite ^/robots.txt$ /index.php last;
+	# Rewrite robots.txt
+	rewrite ^/robots.txt$ /index.php last;
 
 	# Uncomment if using the fastcgi_cache_purge module and Nginx Helper plugin (https://wordpress.org/plugins/nginx-helper/)
 	# location ~ /purge(/.*) {

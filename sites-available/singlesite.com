@@ -28,12 +28,12 @@ server {
 		include global/fastcgi-params.conf;
 
 		# Use the php pool defined in the upstream variable.
-        # See global/php-pool.conf for definition.
-        fastcgi_pass   $upstream;
+		# See global/php-pool.conf for definition.
+		fastcgi_pass   $upstream;
 	}
 
-    # Rewrite robots.txt
-    rewrite ^/robots.txt$ /index.php last;
+	# Rewrite robots.txt
+	rewrite ^/robots.txt$ /index.php last;
 }
 
 # Redirect www to non-www
