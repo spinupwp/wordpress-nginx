@@ -10,8 +10,8 @@ server {
 	root /sites/ssl.com/public;
 
 	# Paths to certificate files.
-    ssl_certificate /etc/letsencrypt/live/ssl.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ssl.com/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/ssl.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/ssl.com/privkey.pem;
 
 	# File to be used as index
 	index index.php;
@@ -34,14 +34,13 @@ server {
 		try_files $uri =404;
 		include global/fastcgi-params.conf;
 
-		# Change socket if using PHP pools or different PHP version
-        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
-        #fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        #fastcgi_pass unix:/var/run/php5-fpm.sock;
+		# Use the php pool defined in the upstream variable.
+		# See global/php-pool.conf for definition.
+		fastcgi_pass   $upstream;
 	}
 
-    # Rewrite robots.txt
-    rewrite ^/robots.txt$ /index.php last;
+	# Rewrite robots.txt
+	rewrite ^/robots.txt$ /index.php last;
 }
 
 # Redirect http to https

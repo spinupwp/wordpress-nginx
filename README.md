@@ -13,6 +13,26 @@ Looking for a modern hosting environment provisioned using Ansible? Check out [W
 
 ## Usage
 
+### PHP configuration
+
+The php-fpm pool configuration is located in `global/php-pool.conf` and defaults to PHP 7.1.  It will need modified if you want the default php-fpm pool service to be a different PHP version.  Additional PHP version upstream definitions can be added to the `/upstreams` folder (a PHP 7.0 sample is provided there).  You can either use the default pool using `$upstream` in your nginx configurations or the specific upstream definition (i.e. php71, php70) setup by your custom upstream definitions.
+
+For example, currently the nginx configuration for `singlesite.com` has the following set for php requests:
+
+```
+fastcgi_pass    $upstream
+```
+
+You could change that to the following to use the php 7.0 php service instead (assuming that php7.0-fpm service is running).
+
+```
+fastcgi_pass    php70
+```
+
+This effectively allows you to have different server blocks execute different versions of PHP if needed.
+
+### Site configuration
+
 You can use these sample configurations as reference or directly by replacing your existing nginx directory. Follow the steps below to replace your existing nginx configuration.
 
 Backup any existing config:
