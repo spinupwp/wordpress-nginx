@@ -19,6 +19,12 @@ server {
 	# Default server block rules
 	include global/server/defaults.conf;
 
+	# LetsEncrypt acme-challenge
+	location ^~ /.well-known/acme-challenge {
+        root /sites/letsencrypt/public;
+        try_files $uri $uri/ =404;
+    }
+
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}
