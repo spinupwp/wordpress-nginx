@@ -12,7 +12,7 @@ server {
 	server_name {domain} www.{domain};
 
 	# Path to document root
-	root {path}{root};
+	root {path}/public;
 
 	# File to be used as index
 	index index.php;
