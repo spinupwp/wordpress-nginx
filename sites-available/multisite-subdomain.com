@@ -31,9 +31,6 @@ server {
 		# See global/php-pool.conf for definition.
 		fastcgi_pass   $upstream;
 	}
-
-	# Rewrite robots.txt
-	rewrite ^/robots.txt$ /index.php last;
 }
 
 # Redirect www to non-www
