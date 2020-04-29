@@ -9,4 +9,4 @@
 !multisite-subdomain.com
 !single-site-no-ssl.com
 !ssl.com
-!ssl-fastcgi-cache.com
+!single-site-with-caching.com
