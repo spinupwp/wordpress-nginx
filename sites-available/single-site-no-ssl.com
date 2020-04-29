@@ -4,17 +4,17 @@ server {
 	listen [::]:80;
 
 	# Server name to listen for
-	server_name singlesite.com;
+	server_name single-site-no-ssl.com;
 
 	# Path to document root
-	root /sites/singlesite.com/public;
+	root /sites/single-site-no-ssl.com/public;
 
 	# File to be used as index
 	index index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
-	access_log /sites/singlesite.com/logs/access.log;
-	error_log /sites/singlesite.com/logs/error.log;
+	access_log /sites/single-site-no-ssl.com/logs/access.log;
+	error_log /sites/single-site-no-ssl.com/logs/error.log;
 
 	# Default server block rules
 	include global/server/defaults.conf;
@@ -37,7 +37,7 @@ server {
 server {
 	listen 80;
 	listen [::]:80;
-	server_name www.singlesite.com;
+	server_name www.single-site-no-ssl.com;
 
-	return 301 $scheme://singlesite.com$request_uri;
+	return 301 $scheme://single-site-no-ssl.com$request_uri;
 }

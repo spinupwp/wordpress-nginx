@@ -7,6 +7,6 @@
 !fastcgi-cache.com
 !multisite-subdirectory.com
 !multisite-subdomain.com
-!singlesite.com
+!single-site-no-ssl.com
 !ssl.com
 !ssl-fastcgi-cache.com
