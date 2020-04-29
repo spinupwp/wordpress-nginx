@@ -2,11 +2,11 @@
 
 This repository contains the Nginx configurations used within the series [Hosting WordPress Yourself](https://deliciousbrains.com/hosting-wordpress-setup-secure-virtual-server/). It contains best practices from various sources, including the [WordPress Codex](https://codex.wordpress.org/Nginx) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
 
-* multisite-subdirectory.com - WordPress multisite install using subdirectories
-* multisite-subdomain.com - WordPress multisite install using subdomains
-* single-site.com - WordPress single site install
-* single-site-with-caching.com - WordPress single site install with FastCGI caching
-* single-site-no-ssl.com - WordPress single site install (no SSL or page caching)
+* [multisite-subdirectory.com](sites-available/multisite-subdirectory.com) - WordPress multisite install using subdirectories
+* [multisite-subdomain.com](sites-available/multisite-subdomain.com) - WordPress multisite install using subdomains
+* [single-site.com](sites-available/single-site.com) - WordPress single site install
+* [single-site-with-caching.com](sites-available/single-site-with-caching.com) - WordPress single site install with FastCGI caching
+* [single-site-no-ssl.com](sites-available/single-site-no-ssl.com) - WordPress single site install (no SSL or page caching)
 
 ## Usage
 
