@@ -4,7 +4,6 @@
 # Except
 !.gitignore
 !default
-!fastcgi-cache.com
 !multisite-subdirectory.com
 !multisite-subdomain.com
 !single-site-no-ssl.com

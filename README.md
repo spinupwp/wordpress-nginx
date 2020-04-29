@@ -2,31 +2,28 @@
 
 This repository contains the Nginx configurations used within the series [Hosting WordPress Yourself](https://deliciousbrains.com/hosting-wordpress-setup-secure-virtual-server/). It contains best practices from various sources, including the [WordPress Codex](https://codex.wordpress.org/Nginx) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
 
-* fastcgi-cache.com - WordPress with [FastCGI caching](https://deliciousbrains.com/hosting-wordpress-yourself-server-monitoring-caching/#page-cache)
 * multisite-subdirectory.com - WordPress multisite install using subdirectories
 * multisite-subdomain.com - WordPress multisite install using subdomains
 * single-site.com - WordPress single site install
 * single-site-with-caching.com - WordPress single site install with FastCGI caching
 * single-site-no-ssl.com - WordPress single site install (no SSL or page caching)
 
-Looking for a modern hosting environment provisioned using Ansible? Check out [WordPress Ansible](https://github.com/A5hleyRich/wordpress-ansible).
-
 ## Usage
 
 ### PHP configuration
 
-The php-fpm pool configuration is located in `global/php-pool.conf` and defaults to PHP 7.1.  It will need modified if you want the default php-fpm pool service to be a different PHP version.  Additional PHP version upstream definitions can be added to the `/upstreams` folder (a PHP 7.0 sample is provided there).  You can either use the default pool using `$upstream` in your nginx configurations or the specific upstream definition (i.e. php71, php70) setup by your custom upstream definitions.
+The php-fpm pool configuration is located in `global/php-pool.conf` and defaults to PHP 7.4. It will need modifying if you want the default php-fpm pool service to be a different PHP version. Additional PHP version upstream definitions can be added to the `/upstreams` folder (a PHP 7.3 sample is provided there). You can either use the default pool using `$upstream` in your nginx configurations or the specific upstream definition (i.e. php73, php72) setup by your custom upstream definitions.
 
-For example, currently the nginx configuration for `singlesite.com` has the following set for php requests:
+For example, currently the nginx configuration for `single-site.com` has the following set for php requests:
 
 ```
 fastcgi_pass    $upstream
 ```
 
-You could change that to the following to use the php 7.0 php service instead (assuming that php7.0-fpm service is running).
+You could change that to the following to use the php 7.3 PHP service instead (assuming that php7.3-fpm service is running).
 
 ```
-fastcgi_pass    php70
+fastcgi_pass    php73
 ```
 
 This effectively allows you to have different server blocks execute different versions of PHP if needed.
@@ -49,7 +46,7 @@ Symlink the default file from _sites-available_ to _sites-enabled_, which will s
 
 Copy one of the example configurations from _sites-available_ to _sites-available/yourdomain.com_:
 
-`sudo cp /etc/nginx/sites-available/singlesite.com /etc/nginx/sites-available/yourdomain.com`
+`sudo cp /etc/nginx/sites-available/single-site.com /etc/nginx/sites-available/yourdomain.com`
 
 Edit the site accordingly, paying close attention to the server name and paths.
 
