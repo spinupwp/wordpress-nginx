@@ -1,6 +1,6 @@
 # WordPress Nginx
 
-This config kit contains the Nginx configurations used in the [Install WordPress on Ubuntu 20.04](https://spinupwp.com/hosting-wordpress-yourself-ssl-spdy/) guide. It contains best practices from various sources, including the [WordPress Codex](https://codex.wordpress.org/Nginx) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
+This config kit contains the Nginx configurations used in the [Install WordPress on Ubuntu 20.04](https://spinupwp.com/hosting-wordpress-yourself-ssl-spdy/) guide. It contains best practices from various sources, including [WordPress.org Support Documentation](https://wordpress.org/support/article/nginx/) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
 
 * [multisite-subdirectory.com](sites-available/multisite-subdirectory.com) - WordPress multisite install using subdirectories
 * [multisite-subdomain.com](sites-available/multisite-subdomain.com) - WordPress multisite install using subdomains
