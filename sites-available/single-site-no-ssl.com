@@ -10,7 +10,7 @@ server {
 	root /sites/single-site-no-ssl.com/public;
 
 	# File to be used as index
-	index index.php;
+	index index.html index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/single-site-no-ssl.com/logs/access.log;
@@ -20,7 +20,7 @@ server {
 	include global/server/defaults.conf;
 
 	location / {
-		try_files $uri $uri/ /index.php?$args;
+		try_files $uri $uri/ /index.php$is_args$args;
 	}
 
 	location ~ \.php$ {
