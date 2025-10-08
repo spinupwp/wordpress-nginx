@@ -15,7 +15,7 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/single-site.com/privkey.pem;
 
 	# File to be used as index
-	index index.php;
+	index index.html index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/single-site.com/logs/access.log;
@@ -28,7 +28,7 @@ server {
 	include global/server/ssl.conf;
 
 	location / {
-		try_files $uri $uri/ /index.php?$args;
+		try_files $uri $uri/ /index.php$is_args$args;
 	}
 
 	location ~ \.php$ {
