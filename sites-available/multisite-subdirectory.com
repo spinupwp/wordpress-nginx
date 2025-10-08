@@ -15,7 +15,7 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/multisite-subdirectory.com/privkey.pem;
 
 	# File to be used as index
-	index index.php;
+	index index.html index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/multisite-subdirectory.com/logs/access.log;
