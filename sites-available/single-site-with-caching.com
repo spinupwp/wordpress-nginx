@@ -20,7 +20,7 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/single-site-with-caching.com/privkey.pem;
 
 	# File to be used as index
-	index index.php;
+	index index.html index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
 	access_log /sites/single-site-with-caching.com/logs/access.log;
@@ -36,7 +36,7 @@ server {
 	include global/server/ssl.conf;
 
 	location / {
-		try_files $uri $uri/ /index.php?$args;
+		try_files $uri $uri/ /index.php$is_args$args;
 	}
 
 	location ~ \.php$ {
@@ -55,7 +55,7 @@ server {
 		fastcgi_cache single-site-with-caching.com;
 
 		# Define caching time.
-		fastcgi_cache_valid 60m;
+		fastcgi_cache_valid 200 301 60m;
 	}
 }
 
