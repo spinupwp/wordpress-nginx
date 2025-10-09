@@ -1,6 +1,6 @@
 # WordPress Nginx
 
-This config kit contains the Nginx configurations used in the [Install WordPress on Ubuntu 22.04](https://spinupwp.com/install-wordpress-ubuntu/) guide. It contains best practices from various sources, including the [WordPress Codex](https://codex.wordpress.org/Nginx) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
+This config kit contains the Nginx configurations used in the [Install WordPress on Ubuntu 24.04](https://spinupwp.com/install-wordpress-ubuntu/) guide. It contains best practices from various sources, including the [WordPress Codex](https://codex.wordpress.org/Nginx) and [H5BP](https://github.com/h5bp/server-configs-nginx). The following example sites are included:
 
 * [multisite-subdirectory.com](sites-available/multisite-subdirectory.com) - WordPress multisite install using subdirectories
 * [multisite-subdomain.com](sites-available/multisite-subdomain.com) - WordPress multisite install using subdomains
@@ -40,11 +40,11 @@ Test the configuration:
 
 If the configuration passes, restart Nginx:
 
-`sudo service nginx reload`
+`sudo systemctl reload nginx.service`
 
 ### PHP configuration
 
-The php-fpm pool configuration is located in `global/php-pool.conf` and defaults to PHP 7.4. It will need modifying if you want the default php-fpm pool service to be a different PHP version. Additional PHP version upstream definitions can be added to the `/upstreams` folder (a PHP 8.3 sample is provided there). You can either use the default pool using `$upstream` in your nginx configurations or the specific upstream definition (i.e. php83, php82) setup by your custom upstream definitions.
+The php-fpm pool configuration is located in `global/php-pool.conf` and defaults to PHP 8.3. It will need modifying if you want the default php-fpm pool service to be a different PHP version. Additional PHP version upstream definitions can be added to the `/upstreams` folder (a PHP 8.4 sample is provided there). You can either use the default pool using `$upstream` in your nginx configurations or the specific upstream definition (i.e. php84) setup by your custom upstream definitions.
 
 For example, currently the nginx configuration for `single-site.com` has the following set for php requests:
 
@@ -52,14 +52,13 @@ For example, currently the nginx configuration for `single-site.com` has the fol
 fastcgi_pass    $upstream
 ```
 
-You could change that to the following to use the php 8.3 PHP service instead (assuming that php8.3-fpm service is running).
+You could change that to the following to use the php 8.4 PHP service instead (assuming that php8.4-fpm service is running).
 
 ```
-fastcgi_pass    php83
+fastcgi_pass    php84
 ```
 
 This effectively allows you to have different server blocks execute different versions of PHP if needed.
-
 
 ## Directory Structure
 
