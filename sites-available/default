@@ -3,7 +3,15 @@
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
+	listen 443 ssl default_server deferred;
+	listen [::]:443 ssl default_server deferred;
+	listen 443 quic reuseport default_server;
+	listen [::]:443 quic reuseport default_server;
+
 	server_name _;
+
+	ssl_certificate /etc/nginx/ssl/default/cert.pem;
+	ssl_certificate_key /etc/nginx/ssl/default/privkey.pem;
 
 	return 444;
 }

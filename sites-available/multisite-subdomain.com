@@ -2,6 +2,8 @@ server {
 	# Ports to listen on
 	listen 443 ssl;
 	listen [::]:443 ssl;
+	listen 443 quic;
+	listen [::]:443 quic;
 	http2 on;
 
 	# Server name to listen for
@@ -26,6 +28,9 @@ server {
 
 	# SSL rules
 	include global/server/ssl.conf;
+
+	# Advertises support for HTTP/3
+	add_header Alt-Svc 'h3=":443"; ma=86400';
 
 	location / {
 		try_files $uri $uri/ /index.php$is_args$args;
