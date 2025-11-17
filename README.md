@@ -6,7 +6,6 @@ This config kit contains the Nginx configurations used in the [Install WordPress
 * [multisite-subdomain.com](sites-available/multisite-subdomain.com) - WordPress multisite install using subdomains
 * [single-site.com](sites-available/single-site.com) - WordPress single site install
 * [single-site-with-caching.com](sites-available/single-site-with-caching.com) - WordPress single site install with FastCGI caching
-* [single-site-no-ssl.com](sites-available/single-site-no-ssl.com) - WordPress single site install (no SSL or page caching)
 
 ## Usage
 
