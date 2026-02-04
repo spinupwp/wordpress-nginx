@@ -13,5 +13,7 @@ server {
 	ssl_certificate /etc/nginx/ssl/default/cert.pem;
 	ssl_certificate_key /etc/nginx/ssl/default/privkey.pem;
 
+	add_header Alt-Svc 'h3=":443"; ma=86400' always;
+
 	return 444;
 }

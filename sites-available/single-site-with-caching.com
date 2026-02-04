@@ -38,7 +38,7 @@ server {
 	include global/server/ssl.conf;
 
 	# Advertises support for HTTP/3
-	add_header Alt-Svc 'h3=":443"; ma=86400';
+	add_header Alt-Svc 'h3=":443"; ma=86400' always;
 
 	location / {
 		try_files $uri $uri/ /index.php$is_args$args;
