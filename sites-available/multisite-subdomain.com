@@ -46,20 +46,32 @@ server {
 	}
 }
 
+# Redirect www to non-www
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	listen 443 quic;
+	listen [::]:443 quic;
+	http2 on;
+
+	server_name www.multisite-subdomain.com;
+
+	# Paths to certificate files.
+	ssl_certificate /etc/letsencrypt/live/multisite-subdomain.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/multisite-subdomain.com/privkey.pem;
+
+	# Advertises support for HTTP/3
+	add_header Alt-Svc 'h3=":443"; ma=86400';
+
+	return 301 https://multisite-subdomain.com$request_uri;
+}
+
 # Redirect http to https
 server {
 	listen 80;
 	listen [::]:80;
+	
 	server_name multisite-subdomain.com *.multisite-subdomain.com;
 
 	return 301 https://$host$request_uri;
-}
-
-# Redirect www to non-www
-server {
-	listen 80;
-	listen [::]:80;
-	server_name www.multisite-subdomain.com;
-
-	return 301 $scheme://multisite-subdomain.com$request_uri;
 }

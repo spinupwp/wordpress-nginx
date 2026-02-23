@@ -64,15 +64,6 @@ server {
 	}
 }
 
-# Redirect http to https
-server {
-	listen 80;
-	listen [::]:80;
-	server_name single-site-with-caching.com www.single-site-with-caching.com;
-
-	return 301 https://single-site-with-caching.com$request_uri;
-}
-
 # Redirect www to non-www
 server {
 	listen 443 ssl;
@@ -83,8 +74,22 @@ server {
 	
 	server_name www.single-site-with-caching.com;
 
+	# Paths to certificate files.
+	ssl_certificate /etc/letsencrypt/live/single-site-with-caching.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/single-site-with-caching.com/privkey.pem;
+
 	# Advertises support for HTTP/3
 	add_header Alt-Svc 'h3=":443"; ma=86400';
+
+	return 301 https://single-site-with-caching.com$request_uri;
+}
+
+# Redirect http to https
+server {
+	listen 80;
+	listen [::]:80;
+	
+	server_name single-site-with-caching.com www.single-site-with-caching.com;
 
 	return 301 https://single-site-with-caching.com$request_uri;
 }
